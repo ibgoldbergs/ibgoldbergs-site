@@ -16,6 +16,10 @@
   --font-mono: var(--font-maple-mono), ui-monospace, monospace;
 }
 
+a {
+  cursor: pointer;
+}
+
 body {
   background: var(--color-background);
   color: var(--color-foreground);
