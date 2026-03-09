@@ -15,6 +15,15 @@ export function PersonJsonLd() {
             "@type": "Organization",
             name: "OneVision Resources",
           },
+          alumniOf: {
+            "@type": "CollegeOrUniversity",
+            name: "Texas Tech University",
+          },
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Asheville",
+            addressRegion: "NC",
+          },
           sameAs: [SOCIAL.linkedin, SOCIAL.twitter],
         }),
       }}

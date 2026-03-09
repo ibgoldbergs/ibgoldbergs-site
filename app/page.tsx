@@ -12,15 +12,33 @@ export default function Home() {
           Ian Goldberg
         </h1>
         <p className="mt-2 text-muted">
-          Senior Product Manager at OneVision Resources
+          Product builder in Asheville, NC
         </p>
       </AnimateIn>
 
       <AnimateIn delay={0.1}>
         <p className="mt-8 leading-relaxed text-foreground">
-          Building products that solve real problems. I think about systems,
-          workflows, and the details that make software feel right. Currently
-          focused on resource management and operational tooling.
+          Senior Product Manager at{" "}
+          <a
+            href="https://onevisionresources.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4 transition-colors hover:text-heading"
+          >
+            OneVision Resources
+          </a>
+          , where I lead development on{" "}
+          <a
+            href="https://www.onevisionresources.com/post/onevision-introduces-provision"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4 transition-colors hover:text-heading"
+          >
+            ProVision
+          </a>
+          — software that helps smart home integrators turn service into a
+          real business. I think about systems, workflows, and the details that
+          make software feel right.
         </p>
       </AnimateIn>
 

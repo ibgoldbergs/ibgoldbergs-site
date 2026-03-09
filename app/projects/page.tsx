@@ -9,18 +9,18 @@ export const metadata: Metadata = {
 
 const projects = [
   {
-    title: "OneVision Resources",
+    title: "ProVision",
     description:
-      "Leading product development for resource management and operational tooling. Building systems that help teams allocate, track, and optimize their most valuable resources.",
-    role: "Senior Product Manager",
-    href: "https://onevisionresources.com",
+      "The platform that helps smart home integrators manage service operations, sell recurring memberships, and turn support into a thriving business. Includes a service CRM, on-call management, subscription billing, and ProVision Conversations — a conversational support tool built for the custom integration industry.",
+    role: "Senior Product Manager at OneVision Resources",
+    href: "https://www.onevisionresources.com/post/onevision-introduces-provision",
   },
   {
-    title: "ibgoldbergs.com",
+    title: "Whilst",
     description:
-      "This personal website. Built with Next.js, Tailwind CSS, and deployed on Vercel. Minimalist dark design inspired by paco.me.",
-    role: "Design & Development",
-    href: "https://ibgoldbergs.com",
+      "An AI-native knowledge platform where your team's knowledge lives, learns, and evolves. Connects to tools like GitHub, Linear, and Notion to surface answers with source citations.",
+    role: "Founder",
+    href: "https://app.whilst.io",
   },
 ];
 
