@@ -1,6 +1,5 @@
 import { AnimateIn } from "@/components/animate-in";
 import { PersonJsonLd } from "@/components/json-ld";
-import { SOCIAL, SITE } from "@/lib/constants";
 import Link from "next/link";
 
 export default function Home() {
@@ -18,7 +17,7 @@ export default function Home() {
 
       <AnimateIn delay={0.1}>
         <p className="mt-8 leading-relaxed text-foreground">
-          Senior Product Manager at{" "}
+          Product builder at{" "}
           <a
             href="https://onevisionresources.com"
             target="_blank"
@@ -27,18 +26,11 @@ export default function Home() {
           >
             OneVision Resources
           </a>
-          , where I lead development on{" "}
-          <a
-            href="https://www.onevisionresources.com/post/onevision-introduces-provision"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline underline-offset-4 transition-colors hover:text-heading"
-          >
-            ProVision
-          </a>
-          , software that helps smart home integrators turn service into a
-          real business. I think about systems, workflows, and the details that
-          make software feel right.
+          , building software for smart home service teams. Creator, designer,
+          skier, backpacker, cook. Always learning, always making.
+        </p>
+        <p className="mt-4 text-sm text-muted italic">
+          &ldquo;To live outside the law, you must be honest.&rdquo;
         </p>
       </AnimateIn>
 
@@ -82,39 +74,6 @@ export default function Home() {
               See what I follow
             </Link>
           </div>
-        </div>
-      </AnimateIn>
-
-      <AnimateIn delay={0.3}>
-        <div className="mt-12 flex gap-4">
-          <a
-            href={SOCIAL.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-muted transition-colors hover:text-foreground"
-          >
-            LinkedIn
-            <span className="ml-0.5 text-dim" aria-hidden="true">
-              ↗
-            </span>
-          </a>
-          <a
-            href={SOCIAL.twitter}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-muted transition-colors hover:text-foreground"
-          >
-            X
-            <span className="ml-0.5 text-dim" aria-hidden="true">
-              ↗
-            </span>
-          </a>
-          <a
-            href={`mailto:${SITE.email}`}
-            className="text-sm text-muted transition-colors hover:text-foreground"
-          >
-            Email
-          </a>
         </div>
       </AnimateIn>
     </article>
