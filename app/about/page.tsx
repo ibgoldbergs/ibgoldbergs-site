@@ -88,15 +88,20 @@ export default function AboutPage() {
               Texas Tech University
             </a>{" "}
             with a focus on entrepreneurship and technology commercialization.
-            Outside of work, I&apos;m usually exploring new tools, building side
-            projects, or thinking about how AI is changing the way we make
-            things.
+          </p>
+
+          <p>
+            Away from the screen, I&apos;m a skier, a backpacker, and an
+            ultralight pack maker. I cook the way I build products: explore
+            widely, respect the craft, and let the ingredients do the work.
+            There&apos;s something about sharing a meal that connects people
+            across cultures in a way nothing else can.
           </p>
 
           <p className="text-muted">
             This site is my corner of the internet. A place to share what
-            I&apos;m learning, what I&apos;m building, and how I think about the
-            craft of making software.
+            I&apos;m learning, what I&apos;m building, and what I&apos;m
+            cooking up next.
           </p>
         </div>
       </AnimateIn>
