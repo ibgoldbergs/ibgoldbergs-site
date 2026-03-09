@@ -1,10 +1,10 @@
 # Claude Code Guide
 
-Read `AGENTS.md` for the full project guide (structure, tech stack, conventions, common tasks).
+@AGENTS.md
+@docs/project-context.md
 
-## Claude-Specific Config
+## Claude-Specific Tooling
 
-- **MCP servers:** `.claude/settings.json` (context7 for documentation lookup)
-- **Detailed context:** `docs/project-context.md` (versions, design tokens, code patterns)
-- **Plans:** `docs/plans/` (work plans and specs)
-- **Learnings:** `docs/solutions/` (institutional knowledge)
+- **MCP servers:** `.claude/settings.json` configures context7 for live documentation lookup (Next.js, Tailwind, etc.)
+- **Plans:** `docs/plans/` for work plans and specs
+- **Learnings:** `docs/solutions/` for institutional knowledge

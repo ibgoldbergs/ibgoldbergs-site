@@ -1,3 +1,8 @@
+---
+description: Project conventions for ibgoldbergs-site
+alwaysApply: true
+---
+
 Read AGENTS.md for the full project guide including structure, tech stack, and common tasks.
 Read docs/project-context.md for detailed versions, design tokens, and code patterns.
 
