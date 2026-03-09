@@ -25,7 +25,7 @@ const projects = [
   {
     title: "Ultralight Packs",
     description:
-      "Handmade ultralight backpacks built for the trail. A hobby that combines material science, functional design, and the pursuit of carrying less to experience more.",
+      "Handmade ultralight backpacks sewn from premium materials like DCF, X-Pac, and UHMWPE. Every stitch, seam, and gram is intentional. Carrying less to experience more.",
     role: "Maker",
   },
 ];

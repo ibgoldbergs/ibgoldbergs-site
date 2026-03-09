@@ -73,8 +73,9 @@ export default function AboutPage() {
             That cross-functional background shapes how I think about building
             things. I&apos;ve sat in the support queue, managed the accounts,
             and analyzed the data, so when I&apos;m designing products, I care
-            about the full system, not just the feature list. Thoughtful
-            defaults, clear feedback, reducing cognitive load.
+            about the full system, not just the feature list. Quality is the
+            thread that runs through everything I do. Thoughtful defaults, the
+            right materials, clear feedback, reducing cognitive load.
           </p>
 
           <p>
@@ -92,10 +93,19 @@ export default function AboutPage() {
 
           <p>
             Away from the screen, I&apos;m a skier, a backpacker, and an
-            ultralight pack maker. I cook the way I build products: explore
-            widely, respect the craft, and let the ingredients do the work.
-            There&apos;s something about sharing a meal that connects people
-            across cultures in a way nothing else can.
+            ultralight pack maker who obsesses over materials and construction.
+            I&apos;m also a pitmaster and home cook. Food is how I explore the
+            world. Every cuisine has something to teach you, and sharing a
+            table is one of the simplest ways to connect people across
+            cultures.
+          </p>
+
+          <p>
+            Two books that shaped how I think:{" "}
+            <em>Zen and the Art of Motorcycle Maintenance</em> on the pursuit
+            of quality as a way of life, and{" "}
+            <em>Reinventing the Bazaar</em> on how markets actually work. Both
+            changed how I see building things.
           </p>
 
           <p className="text-muted">
