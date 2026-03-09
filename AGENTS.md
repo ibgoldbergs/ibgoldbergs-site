@@ -7,7 +7,7 @@ Personal website for Ian Goldberg at [ibgoldbergs.com](https://ibgoldbergs.com).
 ```
 ibgoldbergs-site/
 ├── app/                    # Next.js App Router pages
-│   ├── layout.tsx          # Root layout (Geist font, Nav, Footer)
+│   ├── layout.tsx          # Root layout (Maple Mono font, Nav, Footer)
 │   ├── page.tsx            # Homepage (bio + section links)
 │   ├── projects/page.tsx   # Projects (ProVision, Whilst, Ultralight Packs)
 │   ├── learnings/page.tsx  # Learnings (podcasts, reading, products I love)
@@ -28,7 +28,7 @@ ibgoldbergs-site/
 - **Styling:** Tailwind CSS v4 (CSS-first config via `@theme inline` in globals.css)
 - **Blog:** MDX with gray-matter + reading-time
 - **Animation:** Motion (framer-motion successor)
-- **Fonts:** Geist Sans + Geist Mono (via next/font)
+- **Fonts:** Maple Mono (via next/font/local, self-hosted woff2)
 - **Analytics:** Vercel Analytics
 - **Deploy:** Vercel (auto-deploy on git push to main)
 

@@ -41,8 +41,8 @@ accent:     #3b82f6    (blue, focus rings)
 ```
 
 ### Typography
-- **Sans:** Geist Sans (variable: `--font-geist-sans`)
-- **Mono:** Geist Mono (variable: `--font-geist-mono`)
+- **Font:** Maple Mono (variable: `--font-maple-mono`, self-hosted via next/font/local)
+- Weights: 400, 400i, 500, 600 (woff2 in `public/fonts/`)
 - Letter spacing: -0.01em globally
 - Antialiased rendering
 
