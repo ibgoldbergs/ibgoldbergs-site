@@ -27,7 +27,7 @@ export function ProjectCard({
         <h3 className="text-sm font-medium text-heading">{title}</h3>
         {href && (
           <span className="shrink-0 text-dim" aria-hidden="true">
-            &nearr;
+            ↗
           </span>
         )}
       </div>

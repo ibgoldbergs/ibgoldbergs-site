@@ -36,7 +36,7 @@ export default function Home() {
           >
             ProVision
           </a>
-          — software that helps smart home integrators turn service into a
+          , software that helps smart home integrators turn service into a
           real business. I think about systems, workflows, and the details that
           make software feel right.
         </p>
@@ -67,6 +67,19 @@ export default function Home() {
               className="mt-2 inline-block text-sm text-foreground underline underline-offset-4 transition-colors hover:text-heading"
             >
               View projects
+            </Link>
+          </div>
+
+          <div>
+            <h2 className="text-sm font-medium text-heading">Podcasts</h2>
+            <p className="mt-1 text-sm text-muted">
+              Shows I keep coming back to.
+            </p>
+            <Link
+              href="/podcasts"
+              className="mt-2 inline-block text-sm text-foreground underline underline-offset-4 transition-colors hover:text-heading"
+            >
+              Browse podcasts
             </Link>
           </div>
         </div>

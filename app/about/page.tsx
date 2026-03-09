@@ -4,7 +4,7 @@ import { AnimateIn } from "@/components/animate-in";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "About Ian Goldberg — Senior Product Manager, builder, and systems thinker.",
+    "About Ian Goldberg. Senior Product Manager, builder, and systems thinker.",
 };
 
 export default function AboutPage() {
@@ -19,7 +19,7 @@ export default function AboutPage() {
       <AnimateIn delay={0.1}>
         <div className="mt-8 space-y-6 leading-relaxed text-foreground">
           <p>
-            I&apos;m Ian Goldberg — a product builder based in Asheville, NC.
+            I&apos;m Ian Goldberg, a product builder based in Asheville, NC.
             Currently a Senior Product Manager at{" "}
             <a
               href="https://onevisionresources.com"
@@ -38,7 +38,7 @@ export default function AboutPage() {
             >
               ProVision
             </a>
-            — the platform that helps smart home integrators manage service
+            , the platform that helps smart home integrators manage service
             operations, sell recurring memberships, and turn support into a
             profitable part of their business.
           </p>
@@ -72,7 +72,7 @@ export default function AboutPage() {
           <p>
             That cross-functional background shapes how I think about building
             things. I&apos;ve sat in the support queue, managed the accounts,
-            and analyzed the data — so when I&apos;m designing products, I care
+            and analyzed the data, so when I&apos;m designing products, I care
             about the full system, not just the feature list. Thoughtful
             defaults, clear feedback, reducing cognitive load.
           </p>
@@ -94,7 +94,7 @@ export default function AboutPage() {
           </p>
 
           <p className="text-muted">
-            This site is my corner of the internet — a place to share what
+            This site is my corner of the internet. A place to share what
             I&apos;m learning, what I&apos;m building, and how I think about the
             craft of making software.
           </p>

@@ -16,5 +16,6 @@ export const SOCIAL = {
 export const NAV_ITEMS = [
   { label: "About", href: "/about" },
   { label: "Projects", href: "/projects" },
+  { label: "Podcasts", href: "/podcasts" },
   { label: "Writing", href: "/writing" },
 ] as const;
