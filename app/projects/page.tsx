@@ -34,16 +34,7 @@ export default function ProjectsPage() {
   return (
     <article>
       <AnimateIn>
-        <h1 className="text-2xl font-semibold tracking-tight text-heading">
-          Projects
-        </h1>
-        <p className="mt-2 text-muted">
-          Work I&apos;ve shipped and things I&apos;ve built.
-        </p>
-      </AnimateIn>
-
-      <AnimateIn delay={0.1}>
-        <div className="mt-8 flex flex-col gap-4">
+        <div className="flex flex-col gap-4">
           {projects.map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}

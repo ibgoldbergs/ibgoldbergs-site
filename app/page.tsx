@@ -17,7 +17,7 @@ export default function Home() {
             >
               OneVision Resources
             </a>
-            {" "}for the modern smart home. A creative and technologist, thinker
+            {" "}to service the modern smart home. A creative and technologist, thinker
             and shipper, working natively with AI. Drawn to quality, clarity, and
             iterative improvement, with a deep respect for the details that make
             products feel capable, intuitive, and worth using. Obsessed with
@@ -34,7 +34,7 @@ export default function Home() {
 
           <p className="text-dim text-sm">
             &ldquo;To live outside the law, you must be honest.&rdquo;{" "}
-            <span className="not-italic">Bob Dylan</span>
+            <span className="not-italic">-Bob Dylan</span>
           </p>
         </div>
       </AnimateIn>

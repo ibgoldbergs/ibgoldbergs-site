@@ -19,23 +19,14 @@ export default function WritingPage() {
 
   return (
     <article>
-      <AnimateIn>
-        <h1 className="text-2xl font-semibold tracking-tight text-heading">
-          Writing
-        </h1>
-        <p className="mt-2 text-muted">
-          Thoughts on product, technology, and building things.
-        </p>
-      </AnimateIn>
-
       {years.length === 0 ? (
-        <AnimateIn delay={0.1}>
-          <p className="mt-8 text-muted">No posts yet. Check back soon.</p>
+        <AnimateIn>
+          <p className="text-muted">No posts yet. Check back soon.</p>
         </AnimateIn>
       ) : (
         years.map((year, yearIndex) => (
-          <AnimateIn key={year} delay={0.1 + yearIndex * 0.05}>
-            <div className="mt-10">
+          <AnimateIn key={year} delay={yearIndex * 0.05}>
+            <div className={yearIndex === 0 ? "" : "mt-10"}>
               <h2 className="text-sm font-medium text-dim">{year}</h2>
               <ul className="mt-4 flex flex-col gap-4">
                 {postsByYear[year].map((post) => (
