@@ -37,7 +37,7 @@ function ExternalLink({ href, children }: { href: string; children: React.ReactN
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex items-center justify-between py-2.5"
+      className="group flex items-center justify-between py-1.5"
     >
       <span className="text-sm text-foreground transition-colors group-hover:text-heading">
         {children}
@@ -60,7 +60,7 @@ export default function LearningsPage() {
           <h2 className="text-xs font-medium uppercase tracking-widest text-dim mb-4">
             Podcasts
           </h2>
-          <div className="divide-y divide-border border-t border-b border-border">
+          <div>
             {podcasts.map((podcast) => (
               <ExternalLink key={podcast.title} href={podcast.href}>
                 {podcast.title}
@@ -75,9 +75,9 @@ export default function LearningsPage() {
           <h2 className="text-xs font-medium uppercase tracking-widest text-dim mb-4">
             Reading
           </h2>
-          <div className="divide-y divide-border border-t border-b border-border">
+          <div>
             {reading.map((book) => (
-              <div key={book.title} className="flex items-baseline justify-between py-2.5">
+              <div key={book.title} className="flex items-baseline justify-between py-1.5">
                 <span className="text-sm text-foreground">{book.title}</span>
                 <span className="shrink-0 text-xs text-dim ml-4">{book.author}</span>
               </div>
