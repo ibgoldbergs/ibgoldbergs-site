@@ -17,16 +17,19 @@ export default function Home() {
             >
               OneVision Resources
             </a>
-            {" "}for the modern smart home. Technologist. Creative turned
-            AI-native. Shipper. Iterative thinker. High standards for quality,
-            clarity, and products that feel capable, considered, and worth using.
+            {" "}for the modern smart home. A creative and technologist, thinker
+            and shipper, working natively with AI. Drawn to quality, clarity, and
+            iterative improvement, with a deep respect for the details that make
+            products feel capable, intuitive, and worth using. Obsessed with
+            products that age well and are built to last.
           </p>
 
           <p className="text-muted">
             Husband. Dad. Chef. Pitmaster. Skier. Ultralight pack maker.
-            Developing skill through doing. Constantly learning. Bringing care
-            and quality to whatever gets made. Mindful that much of what
-            surrounds us is someone&apos;s life work.
+            Learning by doing and building skill over time through curiosity,
+            repetition, and constant tinkering. Never fully satisfied, always
+            refining. Mindful that much of what surrounds us is someone&apos;s
+            life work.
           </p>
 
           <p className="text-dim text-sm">
