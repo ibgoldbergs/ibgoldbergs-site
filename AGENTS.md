@@ -8,8 +8,7 @@ Personal website for Ian Goldberg at [ibgoldbergs.com](https://ibgoldbergs.com).
 ibgoldbergs-site/
 ├── app/                    # Next.js App Router pages
 │   ├── layout.tsx          # Root layout (Geist font, Nav, Footer)
-│   ├── page.tsx            # Homepage
-│   ├── about/page.tsx      # About page (career narrative)
+│   ├── page.tsx            # Homepage (bio + section links)
 │   ├── projects/page.tsx   # Projects (ProVision, Whilst, Ultralight Packs)
 │   ├── learnings/page.tsx  # Learnings (podcasts, reading, products I love)
 │   ├── writing/page.tsx    # Blog index

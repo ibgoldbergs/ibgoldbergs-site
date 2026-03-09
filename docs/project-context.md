@@ -62,8 +62,7 @@ accent:     #3b82f6    (blue, focus rings)
 - Rendered with @tailwindcss/typography prose styles (dark overrides in globals.css)
 
 ### Static Pages
-- Homepage (`app/page.tsx`): Personal intro, links to sections
-- About (`app/about/page.tsx`): Career narrative with inline links
+- Homepage (`app/page.tsx`): Short bio, section links (no separate about page)
 - Projects (`app/projects/page.tsx`): Static array of projects
 - Learnings (`app/learnings/page.tsx`): Podcasts, reading, and products I love
 
