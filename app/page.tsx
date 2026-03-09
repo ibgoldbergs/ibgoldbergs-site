@@ -17,16 +17,13 @@ export default function Home() {
             >
               OneVision Resources
             </a>
-            , where I build software for smart home service teams. I care about
-            quality, thoughtful defaults, and the details that make tools feel
-            right. I build AI native.
+            , building software for servicing the smart home.
           </p>
 
           <p className="text-muted">
-            Creator, designer, skier, backpacker, ultralight pack maker, cook.
-            Developing skill through doing, constantly learning, imbuing quality
-            into everything. Mindful that{" "}
-            <em>everything around me is someone&apos;s life work.</em>
+            Creative. Shipper. Care deeply about quality. Build AI native.
+            Skier, backpacker, ultralight pack maker, cook. Always making,
+            always learning, pushing to the edges of what feels possible.
           </p>
 
           <p className="text-dim text-sm">
