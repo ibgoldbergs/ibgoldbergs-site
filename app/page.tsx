@@ -64,7 +64,7 @@ export default function Home() {
           >
             LinkedIn
             <span className="ml-0.5 text-dim" aria-hidden="true">
-              &nearr;
+              ↗
             </span>
           </a>
           <a
@@ -75,7 +75,7 @@ export default function Home() {
           >
             X
             <span className="ml-0.5 text-dim" aria-hidden="true">
-              &nearr;
+              ↗
             </span>
           </a>
           <a

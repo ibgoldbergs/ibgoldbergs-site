@@ -16,7 +16,7 @@ export function Footer() {
         >
           LinkedIn
           <span className="ml-0.5 text-dim" aria-hidden="true">
-            &nearr;
+            ↗
           </span>
         </a>
         <a
@@ -28,7 +28,7 @@ export function Footer() {
         >
           X
           <span className="ml-0.5 text-dim" aria-hidden="true">
-            &nearr;
+            ↗
           </span>
         </a>
         <a
