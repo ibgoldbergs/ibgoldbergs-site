@@ -27,7 +27,7 @@ const podcasts = [
 const reading = [
   { title: "Zen and the Art of Motorcycle Maintenance", author: "Robert Pirsig" },
   { title: "Reinventing the Bazaar", author: "John McMillan" },
-  { title: "Inspired", author: "Marty Cagan", href: "https://www.svpg.com/inspired-how-to-create-tech-products-customers-love/" },
+  { title: "Inspired", author: "Marty Cagan" },
   { title: "Steve Jobs", author: "Walter Isaacson" },
 ];
 
@@ -45,7 +45,7 @@ function ExternalLink({ href, children }: { href: string; children: React.ReactN
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex items-center justify-between py-1.5 cursor-pointer"
+      className="group flex items-center justify-between py-2 cursor-pointer"
     >
       <span className="text-sm text-foreground transition-colors group-hover:text-heading">
         {children}
@@ -57,6 +57,14 @@ function ExternalLink({ href, children }: { href: string; children: React.ReactN
         ↗
       </span>
     </a>
+  );
+}
+
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <h2 className="text-xs font-medium uppercase tracking-widest text-dim pb-3">
+      {children}
+    </h2>
   );
 }
 
@@ -73,43 +81,43 @@ export default function LearningsPage() {
       </AnimateIn>
 
       <AnimateIn delay={0.1}>
-        <div className="mt-10">
-          <h2 className="text-sm font-medium text-heading">Podcasts</h2>
-          <div className="mt-2 flex flex-col">
+        <section className="mt-12">
+          <SectionLabel>Podcasts</SectionLabel>
+          <div className="border-t border-border">
             {podcasts.map((podcast) => (
               <ExternalLink key={podcast.title} href={podcast.href}>
                 {podcast.title}
               </ExternalLink>
             ))}
           </div>
-        </div>
+        </section>
       </AnimateIn>
 
       <AnimateIn delay={0.2}>
-        <div className="mt-10">
-          <h2 className="text-sm font-medium text-heading">Reading</h2>
-          <div className="mt-2 flex flex-col">
+        <section className="mt-12">
+          <SectionLabel>Reading</SectionLabel>
+          <div className="border-t border-border">
             {reading.map((book) => (
-              <div key={book.title} className="py-1.5">
+              <div key={book.title} className="flex items-baseline justify-between py-2">
                 <span className="text-sm text-foreground">{book.title}</span>
-                <span className="text-xs text-dim ml-2">{book.author}</span>
+                <span className="shrink-0 text-xs text-dim ml-4">{book.author}</span>
               </div>
             ))}
           </div>
-        </div>
+        </section>
       </AnimateIn>
 
       <AnimateIn delay={0.3}>
-        <div className="mt-10">
-          <h2 className="text-sm font-medium text-heading">Products I Love</h2>
-          <div className="mt-2 flex flex-col">
+        <section className="mt-12">
+          <SectionLabel>Products I Love</SectionLabel>
+          <div className="border-t border-border">
             {products.map((product) => (
               <ExternalLink key={product.title} href={product.href}>
                 {product.title}
               </ExternalLink>
             ))}
           </div>
-        </div>
+        </section>
       </AnimateIn>
     </article>
   );
