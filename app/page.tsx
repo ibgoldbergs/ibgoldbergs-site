@@ -7,16 +7,7 @@ export default function Home() {
     <article>
       <PersonJsonLd />
       <AnimateIn>
-        <h1 className="text-2xl font-semibold tracking-tight text-heading">
-          Ian Goldberg
-        </h1>
-        <p className="mt-2 text-muted">
-          Product builder in Asheville, NC
-        </p>
-      </AnimateIn>
-
-      <AnimateIn delay={0.1}>
-        <p className="mt-8 leading-relaxed text-foreground">
+        <p className="leading-relaxed text-foreground">
           Product builder at{" "}
           <a
             href="https://onevisionresources.com"
@@ -34,46 +25,29 @@ export default function Home() {
         </p>
       </AnimateIn>
 
-      <AnimateIn delay={0.2}>
-        <div className="mt-12 flex flex-col gap-6">
-          <div>
-            <h2 className="text-sm font-medium text-heading">Writing</h2>
-            <p className="mt-1 text-sm text-muted">
-              Thoughts on product, technology, and building things.
-            </p>
-            <Link
-              href="/writing"
-              className="mt-2 inline-block text-sm text-foreground underline underline-offset-4 transition-colors hover:text-heading"
-            >
-              Read all posts
-            </Link>
-          </div>
-
-          <div>
-            <h2 className="text-sm font-medium text-heading">Projects</h2>
-            <p className="mt-1 text-sm text-muted">
-              Work I&apos;ve shipped and things I&apos;ve built.
-            </p>
-            <Link
-              href="/projects"
-              className="mt-2 inline-block text-sm text-foreground underline underline-offset-4 transition-colors hover:text-heading"
-            >
-              View projects
-            </Link>
-          </div>
-
-          <div>
-            <h2 className="text-sm font-medium text-heading">Learnings</h2>
-            <p className="mt-1 text-sm text-muted">
-              Podcasts, books, and products I keep coming back to.
-            </p>
-            <Link
-              href="/learnings"
-              className="mt-2 inline-block text-sm text-foreground underline underline-offset-4 transition-colors hover:text-heading"
-            >
-              See what I follow
-            </Link>
-          </div>
+      <AnimateIn delay={0.1}>
+        <div className="mt-12 flex flex-col gap-3">
+          <Link
+            href="/writing"
+            className="group flex items-center justify-between py-1 text-sm text-foreground transition-colors hover:text-heading"
+          >
+            Writing
+            <span className="text-dim opacity-0 translate-x-[-4px] transition-all group-hover:opacity-100 group-hover:translate-x-0" aria-hidden="true">&rarr;</span>
+          </Link>
+          <Link
+            href="/projects"
+            className="group flex items-center justify-between py-1 text-sm text-foreground transition-colors hover:text-heading"
+          >
+            Projects
+            <span className="text-dim opacity-0 translate-x-[-4px] transition-all group-hover:opacity-100 group-hover:translate-x-0" aria-hidden="true">&rarr;</span>
+          </Link>
+          <Link
+            href="/learnings"
+            className="group flex items-center justify-between py-1 text-sm text-foreground transition-colors hover:text-heading"
+          >
+            Learnings
+            <span className="text-dim opacity-0 translate-x-[-4px] transition-all group-hover:opacity-100 group-hover:translate-x-0" aria-hidden="true">&rarr;</span>
+          </Link>
         </div>
       </AnimateIn>
     </article>
