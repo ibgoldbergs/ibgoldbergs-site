@@ -11,7 +11,7 @@ ibgoldbergs-site/
 │   ├── page.tsx            # Homepage
 │   ├── about/page.tsx      # About page (career narrative)
 │   ├── projects/page.tsx   # Projects (ProVision, Whilst, Ultralight Packs)
-│   ├── podcasts/page.tsx   # Podcast recommendations (14 shows, 4 categories)
+│   ├── learnings/page.tsx  # Learnings (podcasts, reading, products I love)
 │   ├── writing/page.tsx    # Blog index
 │   ├── feed.xml/route.ts   # RSS feed
 │   ├── sitemap.ts          # Sitemap
@@ -19,7 +19,7 @@ ibgoldbergs-site/
 ├── components/             # Shared React components
 ├── content/posts/          # MDX blog posts (frontmatter: title, date, description)
 ├── lib/                    # Utilities (constants, MDX helpers)
-├── public/images/          # Static images (podcast artwork, etc.)
+├── public/images/          # Static images
 └── docs/                   # Plans, learnings, and project context
 ```
 
@@ -45,7 +45,7 @@ ibgoldbergs-site/
 ### Writing & Content
 - **No em dashes.** Use commas or periods instead.
 - Editorial voice: direct, personal, concise. Not corporate.
-- Podcast descriptions capture the "why it matters" theme, not the format.
+- Learnings page uses inline static arrays for podcasts, reading, and products.
 - Use `&apos;` for apostrophes in JSX, `{" "}` for intentional spaces around inline elements.
 
 ### Design
@@ -64,7 +64,7 @@ npm run lint         # ESLint
 
 **New blog post:** Create `content/posts/my-post.mdx` with frontmatter (title, date, description).
 
-**New podcast:** Add entry to the `sections` array in `app/podcasts/page.tsx`, download artwork to `public/images/podcasts/`.
+**New learning:** Add to the relevant array (podcasts, reading, or products) in `app/learnings/page.tsx`.
 
 **Deploy:** Push to main. Vercel auto-deploys.
 
@@ -76,7 +76,7 @@ npm run lint         # ESLint
 | `app/globals.css` | All color tokens and theme config |
 | `app/layout.tsx` | Root layout, fonts, metadata |
 | `components/nav.tsx` | Navigation bar |
-| `components/podcast-card.tsx` | Podcast row component |
+| `app/learnings/page.tsx` | Learnings page (podcasts, books, products) |
 | `components/project-card.tsx` | Project card component |
 | `components/animate-in.tsx` | Scroll animation wrapper |
 

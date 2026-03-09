@@ -75,7 +75,9 @@ export default function AboutPage() {
             and analyzed the data, so when I&apos;m designing products, I care
             about the full system, not just the feature list. Quality is the
             thread that runs through everything I do. Thoughtful defaults, the
-            right materials, clear feedback, reducing cognitive load.
+            right materials, clear feedback, reducing cognitive load. I build
+            AI native, using tools like Claude Code and Cursor as core parts of
+            how I work and ship.
           </p>
 
           <p>

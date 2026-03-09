@@ -71,15 +71,15 @@ export default function Home() {
           </div>
 
           <div>
-            <h2 className="text-sm font-medium text-heading">Podcasts</h2>
+            <h2 className="text-sm font-medium text-heading">Learnings</h2>
             <p className="mt-1 text-sm text-muted">
-              Shows I keep coming back to.
+              Podcasts, books, and products I keep coming back to.
             </p>
             <Link
-              href="/podcasts"
+              href="/learnings"
               className="mt-2 inline-block text-sm text-foreground underline underline-offset-4 transition-colors hover:text-heading"
             >
-              Browse podcasts
+              See what I follow
             </Link>
           </div>
         </div>

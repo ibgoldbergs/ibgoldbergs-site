@@ -65,12 +65,12 @@ accent:     #3b82f6    (blue, focus rings)
 - Homepage (`app/page.tsx`): Personal intro, links to sections
 - About (`app/about/page.tsx`): Career narrative with inline links
 - Projects (`app/projects/page.tsx`): Static array of projects
-- Podcasts (`app/podcasts/page.tsx`): Static array grouped by category
+- Learnings (`app/learnings/page.tsx`): Podcasts, reading, and products I love
 
-### Podcast Data
-- 14 podcasts in 4 sections (Product & Building, Tech & Business, AI, Sports & Culture)
-- Each has: title, hosts, description (thematic one-liner), href, image path
-- Artwork stored in `public/images/podcasts/` (JPG, sourced from iTunes API)
+### Learnings Data
+- 14 podcasts (flat list with external links)
+- 4 books in reading section (title + author)
+- 5 products in "Products I Love" section (with external links)
 
 ---
 
