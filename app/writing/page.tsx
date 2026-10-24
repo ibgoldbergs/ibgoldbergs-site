@@ -1,10 +1,18 @@
-import { documents } from "@/lib/cms";
+import { socialMetadata } from "@/lib/metadata";
+import { documents, settings } from "@/lib/cms";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AnimateIn } from "@/components/animate-in";
 import { getPostsByYear } from "@/lib/mdx";
 
-export async function generateMetadata():Promise<Metadata>{const [c]=await documents<{writingTitle:string;writingDescription:string}>("settings",true);return {title:c.writingTitle,description:c.writingDescription};}
+export async function generateMetadata(): Promise<Metadata> {
+  const [[c], site] = await Promise.all([documents<{writingTitle:string;writingDescription:string}>("settings", true), settings()]);
+  return {
+    title: c.writingTitle,
+    description: c.writingDescription,
+    ...socialMetadata({ title: c.writingTitle, description: c.writingDescription, path: "/writing", site }),
+  };
+}
 
 function formatDate(dateStr: string) {
   const date = new Date(dateStr);

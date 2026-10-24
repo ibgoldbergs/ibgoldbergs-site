@@ -1,8 +1,16 @@
-import { documents } from "@/lib/cms";
+import { socialMetadata } from "@/lib/metadata";
+import { documents, settings } from "@/lib/cms";
 import type { Metadata } from "next";
 import { AnimateIn } from "@/components/animate-in";
 
-export async function generateMetadata():Promise<Metadata>{const [c]=await documents<{title:string;description:string}>("learnings",true);return {title:c.title,description:c.description};}
+export async function generateMetadata(): Promise<Metadata> {
+  const [[c], site] = await Promise.all([documents<{title:string;description:string}>("learnings", true), settings()]);
+  return {
+    title: c.title,
+    description: c.description,
+    ...socialMetadata({ title: c.title, description: c.description, path: "/learnings", site }),
+  };
+}
 
 
 

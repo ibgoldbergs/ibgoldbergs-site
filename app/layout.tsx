@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { settings } from "@/lib/cms";
+import { socialMetadata } from "@/lib/metadata";
 import "./globals.css";
 
 const mapleMono = localFont({
@@ -44,27 +45,7 @@ export async function generateMetadata(): Promise<Metadata> {
     template: `%s — ${SITE.title}`,
   },
   description: SITE.description,
-  openGraph: {
-    title: SITE.title,
-    description: SITE.description,
-    url: SITE.url,
-    siteName: SITE.name,
-    locale: SITE.locale,
-    type: "website",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: SITE.ogAlt,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: SITE.title,
-    description: SITE.description,
-  },
+  ...socialMetadata({ title: SITE.title, description: SITE.description, path: "/", site: SITE }),
   robots: {
     index: !(await draftMode()).isEnabled,
     follow: !(await draftMode()).isEnabled,
