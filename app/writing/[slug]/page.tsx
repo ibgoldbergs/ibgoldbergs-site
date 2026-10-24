@@ -6,7 +6,7 @@ import { getAllPosts } from "@/lib/mdx";
 import { SITE } from "@/lib/constants";
 
 export async function generateStaticParams() {
-  return getAllPosts().map((post) => ({ slug: post.slug }));
+  return getAllPosts({ includeUnlisted: true }).map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({
@@ -15,12 +15,13 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getAllPosts().find((p) => p.slug === slug);
+  const post = getAllPosts({ includeUnlisted: true }).find((p) => p.slug === slug);
   if (!post) return {};
 
   return {
     title: post.title,
     description: post.description,
+    robots: post.unlisted ? { index: false, follow: false } : undefined,
     openGraph: {
       title: post.title,
       description: post.description,
@@ -45,7 +46,7 @@ export default async function PostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = getAllPosts().find((p) => p.slug === slug);
+  const post = getAllPosts({ includeUnlisted: true }).find((p) => p.slug === slug);
   if (!post) notFound();
 
   let PostContent: React.ComponentType;
