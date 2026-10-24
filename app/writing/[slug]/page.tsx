@@ -1,3 +1,5 @@
+import { PortableText } from "@portabletext/react";
+import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -6,7 +8,7 @@ import { getAllPosts } from "@/lib/mdx";
 import { SITE } from "@/lib/constants";
 
 export async function generateStaticParams() {
-  return getAllPosts({ includeUnlisted: true }).map((post) => ({ slug: post.slug }));
+  return (await getAllPosts({ includeUnlisted: true })).map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({
@@ -15,13 +17,13 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getAllPosts({ includeUnlisted: true }).find((p) => p.slug === slug);
+  const post = (await getAllPosts({ includeUnlisted: true, preview: true })).find((p) => p.slug === slug);
   if (!post) return {};
 
   return {
     title: post.title,
     description: post.description,
-    robots: post.unlisted ? { index: false, follow: false } : undefined,
+    robots: (post.unlisted || (await draftMode()).isEnabled) ? { index: false, follow: false } : undefined,
     openGraph: {
       title: post.title,
       description: post.description,
@@ -46,16 +48,9 @@ export default async function PostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = getAllPosts({ includeUnlisted: true }).find((p) => p.slug === slug);
+  const post = (await getAllPosts({ includeUnlisted: true, preview: true })).find((p) => p.slug === slug);
   if (!post) notFound();
 
-  let PostContent: React.ComponentType;
-  try {
-    const mod = await import(`@/content/posts/${slug}.mdx`);
-    PostContent = mod.default;
-  } catch {
-    notFound();
-  }
 
   return (
     <article>
@@ -93,7 +88,7 @@ export default async function PostPage({
 
       <AnimateIn delay={0.1}>
         <div className="mt-10">
-          <PostContent />
+          <div className="prose prose-invert"><PortableText value={post.body} /></div>
         </div>
       </AnimateIn>
 
@@ -112,11 +107,11 @@ export default async function PostPage({
               url: SITE.url,
             },
             url: `${SITE.url}/writing/${post.slug}`,
-          }),
+          }).replace(/</g, "\\u003c"),
         }}
       />
     </article>
   );
 }
 
-export const dynamicParams = false;
+export const dynamicParams = true;

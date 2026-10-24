@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { NAV_ITEMS } from "@/lib/constants";
 
-export function Nav() {
+
+export function Nav({name,items: NAV_ITEMS}:{name:string;items:{label:string;href:string}[]}) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -15,7 +15,7 @@ export function Nav() {
         href="/"
         className="text-heading text-sm font-medium tracking-tight transition-colors hover:text-foreground"
       >
-        Ian Goldberg
+        {name}
       </Link>
 
       {/* Desktop nav */}

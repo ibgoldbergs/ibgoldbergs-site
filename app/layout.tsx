@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
-import { SITE } from "@/lib/constants";
+import { settings } from "@/lib/cms";
 import "./globals.css";
 
 const mapleMono = localFont({
@@ -34,7 +34,9 @@ const mapleMono = localFont({
   display: "swap",
 });
 
-export const metadata: Metadata = {
+export async function generateMetadata(): Promise<Metadata> {
+ const SITE=await settings();
+ return {
   metadataBase: new URL(SITE.url),
   title: {
     default: SITE.title,
@@ -67,12 +69,14 @@ export const metadata: Metadata = {
     follow: true,
   },
 };
+}
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const SITE=await settings();
   return (
     <html
       lang="en"
@@ -96,7 +100,7 @@ export default function RootLayout({
             Skip to content
           </a>
           <div className="mx-auto max-w-[640px] px-6 pt-16 pb-8 sm:pt-32">
-            <Nav />
+            <Nav name={SITE.name} items={SITE.navigation} />
             <main id="main" className="mt-16 sm:mt-24">
               {children}
             </main>

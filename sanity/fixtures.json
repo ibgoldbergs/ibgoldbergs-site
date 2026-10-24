@@ -1,0 +1,784 @@
+[
+  {
+    "_id": "settings",
+    "_type": "settings",
+    "name": "Ian Goldberg",
+    "title": "Ian Goldberg",
+    "description": "Ian Goldberg \u2014 product builder in Asheville, NC. Senior PM at OneVision Resources. Writing about product, technology, and building things.",
+    "url": "https://ibgoldbergs.com",
+    "locale": "en_US",
+    "email": "hello@ibgoldbergs.com",
+    "linkedin": "https://www.linkedin.com/in/ian-goldberg-99073350/",
+    "twitter": "https://x.com/ibgoldbergs",
+    "navigation": [
+      {
+        "label": "projects",
+        "href": "/projects",
+        "_key": "1"
+      },
+      {
+        "label": "learnings",
+        "href": "/learnings",
+        "_key": "2"
+      },
+      {
+        "label": "writing",
+        "href": "/writing",
+        "_key": "3"
+      }
+    ],
+    "writingTitle": "Writing",
+    "writingDescription": "Thoughts on product, technology, and building things.",
+    "emptyWriting": "No posts yet. Check back soon."
+  },
+  {
+    "_id": "projects",
+    "_type": "projects",
+    "title": "Projects",
+    "description": "Projects and work by Ian Goldberg.",
+    "items": [
+      {
+        "title": "ProVision",
+        "description": "The platform that helps smart home integrators manage service operations, sell recurring memberships, and turn support into a thriving business. Includes a service CRM, on-call management, subscription billing, and a conversational support tool built for the custom integration industry.",
+        "role": "Senior Product Manager at OneVision Resources",
+        "href": "https://www.onevisionresources.com/post/onevision-introduces-provision",
+        "_key": "4"
+      },
+      {
+        "title": "Whilst",
+        "description": "An AI-native knowledge platform where your team's knowledge lives, learns, and evolves. Connects to tools like GitHub, Linear, and Notion to surface answers with source citations.",
+        "role": "Founder",
+        "href": "https://app.whilst.io",
+        "_key": "5"
+      },
+      {
+        "title": "Ultralight Packs",
+        "description": "Handmade ultralight backpacks sewn from premium materials like DCF, X-Pac, and UHMWPE. Every stitch, seam, and gram is intentional. Carrying less to experience more.",
+        "role": "Maker",
+        "_key": "6"
+      }
+    ]
+  },
+  {
+    "_id": "learnings",
+    "_type": "learnings",
+    "title": "Learnings",
+    "description": "Podcasts and books that shape how Ian Goldberg thinks and builds.",
+    "podcastsLabel": "Podcasts",
+    "readingLabel": "Reading",
+    "podcasts": [
+      {
+        "title": "Acquired",
+        "href": "https://www.acquired.fm/",
+        "_key": "7"
+      },
+      {
+        "title": "Lenny's Podcast",
+        "href": "https://www.lennysnewsletter.com/podcast",
+        "_key": "8"
+      },
+      {
+        "title": "In Depth",
+        "href": "https://review.firstround.com/podcast/",
+        "_key": "9"
+      },
+      {
+        "title": "Dwarkesh Podcast",
+        "href": "https://www.dwarkesh.com/podcast",
+        "_key": "10"
+      },
+      {
+        "title": "Stratechery",
+        "href": "https://stratechery.com/category/podcasts/",
+        "_key": "11"
+      },
+      {
+        "title": "BG2",
+        "href": "https://www.bg2pod.com/",
+        "_key": "12"
+      },
+      {
+        "title": "a16z",
+        "href": "https://a16z.com/podcasts/",
+        "_key": "13"
+      },
+      {
+        "title": "Unsolicited Feedback",
+        "href": "https://www.reforge.com/podcast/unsolicited-feedback",
+        "_key": "14"
+      },
+      {
+        "title": "Crucible Moments",
+        "href": "https://www.cruciblemoments.com/",
+        "_key": "15"
+      },
+      {
+        "title": "AI & I",
+        "href": "https://every.to/podcast",
+        "_key": "16"
+      },
+      {
+        "title": "How I AI",
+        "href": "https://podcasts.apple.com/us/podcast/how-i-ai/id1809663079",
+        "_key": "17"
+      },
+      {
+        "title": "Unsupervised Learning",
+        "href": "https://www.redpoint.com/content-hub/unsupervised-learning/",
+        "_key": "18"
+      },
+      {
+        "title": "Get the Check",
+        "href": "https://www.getthecheckpod.com/",
+        "_key": "19"
+      },
+      {
+        "title": "Glue Guys",
+        "href": "https://joincolossus.com/series/glue-guys/",
+        "_key": "20"
+      }
+    ],
+    "reading": [
+      {
+        "title": "Zen and the Art of Motorcycle Maintenance",
+        "author": "Robert Pirsig",
+        "_key": "21"
+      },
+      {
+        "title": "Reinventing the Bazaar",
+        "author": "John McMillan",
+        "_key": "22"
+      },
+      {
+        "title": "Inspired",
+        "author": "Marty Cagan",
+        "_key": "23"
+      },
+      {
+        "title": "Steve Jobs",
+        "author": "Walter Isaacson",
+        "_key": "24"
+      }
+    ]
+  },
+  {
+    "_id": "post-hello-world",
+    "_type": "post",
+    "title": "Hello, World",
+    "date": "2026-03-09",
+    "description": "Welcome to my corner of the internet. Why I built this site and what you'll find here.",
+    "tags": [
+      "personal",
+      "product"
+    ],
+    "draft": false,
+    "slug": {
+      "_type": "slug",
+      "current": "hello-world"
+    },
+    "unlisted": false,
+    "body": [
+      {
+        "_type": "block",
+        "_key": "25",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "26",
+            "text": "This is the beginning. A personal site, a blank page, and the decision to start writing.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "27",
+        "style": "h2",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "28",
+            "text": "Why a personal website?",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "29",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "30",
+            "text": "I've been a product manager for years now, spending most of my time thinking about other people's products. Workflows, systems, user experiences, always building for someone else. This site is different. It's for me.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "31",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "32",
+            "text": "A few reasons I finally built it:",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "33",
+        "style": "normal",
+        "listItem": "bullet",
+        "level": 1,
+        "children": [
+          {
+            "_type": "span",
+            "_key": "34",
+            "text": "Thinking in public.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "35",
+            "text": " Writing forces clarity. The best way to understand something is to explain it.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "36",
+        "style": "normal",
+        "listItem": "bullet",
+        "level": 1,
+        "children": [
+          {
+            "_type": "span",
+            "_key": "37",
+            "text": "Owning my presence.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "38",
+            "text": " LinkedIn and Twitter are rented platforms. This domain is mine.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "39",
+        "style": "normal",
+        "listItem": "bullet",
+        "level": 1,
+        "children": [
+          {
+            "_type": "span",
+            "_key": "40",
+            "text": "Showing my work.",
+            "marks": [
+              "strong"
+            ]
+          },
+          {
+            "_type": "span",
+            "_key": "41",
+            "text": " Not just what I shipped, but how I think about shipping.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "42",
+        "style": "h2",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "43",
+            "text": "What you'll find here",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "44",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "45",
+            "text": "I plan to write about product management, technology, and the craft of building things. Not generic advice, specific observations from the work itself.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "46",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "47",
+            "text": "Expect posts about:",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "48",
+        "style": "normal",
+        "listItem": "bullet",
+        "level": 1,
+        "children": [
+          {
+            "_type": "span",
+            "_key": "49",
+            "text": "How I think about trade-offs and prioritization",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "50",
+        "style": "normal",
+        "listItem": "bullet",
+        "level": 1,
+        "children": [
+          {
+            "_type": "span",
+            "_key": "51",
+            "text": "Product teardowns of things I admire (or don't)",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "52",
+        "style": "normal",
+        "listItem": "bullet",
+        "level": 1,
+        "children": [
+          {
+            "_type": "span",
+            "_key": "53",
+            "text": "Lessons from building operational tools",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "54",
+        "style": "normal",
+        "listItem": "bullet",
+        "level": 1,
+        "children": [
+          {
+            "_type": "span",
+            "_key": "55",
+            "text": "The intersection of design and systems thinking",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "56",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "57",
+            "text": "More to come.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      }
+    ]
+  },
+  {
+    "_id": "post-small-industries-deserve-great-software",
+    "_type": "post",
+    "title": "Small Industries Deserve Great Software",
+    "date": "2026-10-24",
+    "description": "The size of an industry shouldn\u2019t determine the quality of its software.",
+    "tags": [],
+    "draft": false,
+    "unlisted": true,
+    "slug": {
+      "_type": "slug",
+      "current": "small-industries-deserve-great-software"
+    },
+    "body": [
+      {
+        "_type": "block",
+        "_key": "58",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "59",
+            "text": "The size of an industry shouldn\u2019t determine the quality of its software.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "60",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "61",
+            "text": "People working in specialized fields deserve thoughtful design, broad capabilities, frequent improvements, and products that understand how they actually work. A smaller market doesn\u2019t make those needs less important. It has just made the economics of meeting them harder.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "62",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "63",
+            "text": "That\u2019s what makes this moment in software so exciting.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "64",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "65",
+            "text": "Since 2020, I\u2019ve spent a lot of time studying companies like Linear and Stripe. Their attention to detail is part of the appeal, but so is the experience of being their customer: getting responsive help in Linear\u2019s Slack community or talking through a complex problem with Stripe\u2019s support team in Discord. Those experiences build trust. They\u2019ve certainly made me an advocate.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "66",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "67",
+            "text": "The ambition is to bring that same level of care to software built for much smaller industries.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "68",
+        "style": "h2",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "69",
+            "text": "Deeply specialized, without a lower quality bar",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "70",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "71",
+            "text": "Building for a niche has often meant difficult tradeoffs. There are fewer customers to support the cost of a team, yet the work can be just as complex. Customers still need reliability, integrations, thoughtful workflows, and the small details that make a product feel good to use.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "72",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "73",
+            "text": "I don\u2019t think SaaS is dead. I think we\u2019re entering a period where more of those tradeoffs can be challenged.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "74",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "75",
+            "text": "AI is changing what focused teams can build and maintain. The opportunity goes well beyond launching a narrow tool quickly. It becomes more practical to build deeply specialized software with the breadth to support more of an industry\u2019s work, a high quality bar, and a steady pace of meaningful improvement.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "76",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "77",
+            "text": "Residential technology integration is one example. The CEDIA channel has its own workflows, terminology, and long-term client relationships. Software built around those realities can go further than asking people to adapt their businesses to a general-purpose tool.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "78",
+        "style": "h2",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "79",
+            "text": "Feedback has to become action",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "80",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "81",
+            "text": "Better tools don\u2019t automatically produce better products. The advantage belongs to teams that understand their customers and put that understanding to work.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "82",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "83",
+            "text": "Listening matters, but so does responding. Taking a request seriously, understanding the need behind it, building a useful solution, and returning to refine it. Customers should be able to recognize their feedback in the product they use.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "84",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "85",
+            "text": "Shipping often matters when it delivers that kind of progress. Quality shows up in the reliability of a workflow, the clarity of an interaction, and the care taken with something that might look minor on a feature list but affects someone every day.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "86",
+        "style": "h2",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "87",
+            "text": "Beyond a single interface",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "88",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "89",
+            "text": "The way we use software is opening up, too. A well-designed web app can be one way into a product, rather than the only way.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "90",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "91",
+            "text": "That\u2019s part of the motivation for doubling down on agentic processes and headless software: capabilities that can be used through APIs, integrations, or agents as well as an interface. Someone might work directly in the app, ask an agent to complete a task, or access the same capabilities through another system.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "92",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "93",
+            "text": "In that world, a product\u2019s understanding of an industry matters even more. The workflows, rules, and context still need to be right, whichever way the software is used.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "94",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "95",
+            "text": "This is what motivates my work at OneVision, alongside a team that cares deeply about quality and the people we build for. But the opportunity is much broader than any one company or industry.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "96",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "97",
+            "text": "Small markets can support ambitious software. Teams can cover more ground without losing their focus on the details. Customers can have products built around their work, with people behind them who respond and keep making things better.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "98",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "99",
+            "text": "That\u2019s a future worth building toward: great software in places that have been hard to serve, earning trust and becoming something customers genuinely love.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      }
+    ]
+  },
+  {
+    "_id": "home",
+    "_type": "home",
+    "bio": [
+      {
+        "_type": "block",
+        "_key": "bio",
+        "style": "normal",
+        "markDefs": [
+          {
+            "_key": "ov",
+            "_type": "link",
+            "href": "https://onevisionresources.com"
+          }
+        ],
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a",
+            "marks": [],
+            "text": "Building product at "
+          },
+          {
+            "_type": "span",
+            "_key": "b",
+            "marks": [
+              "ov"
+            ],
+            "text": "OneVision Resources"
+          },
+          {
+            "_type": "span",
+            "_key": "c",
+            "marks": [],
+            "text": " to service the modern smart home. A creative and technologist, thinker and shipper, working natively with AI. Drawn to quality, clarity, and iterative improvement, with a deep respect for the details that make products feel capable, intuitive, and worth using. Obsessed with products that age well and are built to last."
+          }
+        ]
+      }
+    ],
+    "personal": "Husband. Dad. Chef. Pitmaster. Skier. Ultralight pack maker. Learning by doing and building skill over time through curiosity, repetition, and constant tinkering. Never fully satisfied, always refining. Mindful that much of what surrounds us is someone's life work.",
+    "quote": "\u201cTo live outside the law, you must be honest.\u201d",
+    "attribution": "-Bob Dylan"
+  }
+]

@@ -1,35 +1,10 @@
+import { documents } from "@/lib/cms";
 import type { Metadata } from "next";
 import { AnimateIn } from "@/components/animate-in";
 
-export const metadata: Metadata = {
-  title: "Learnings",
-  description:
-    "Podcasts and books that shape how Ian Goldberg thinks and builds.",
-};
+export async function generateMetadata():Promise<Metadata>{const [c]=await documents<{title:string;description:string}>("learnings",true);return {title:c.title,description:c.description};}
 
-const podcasts = [
-  { title: "Acquired", href: "https://www.acquired.fm/" },
-  { title: "Lenny's Podcast", href: "https://www.lennysnewsletter.com/podcast" },
-  { title: "In Depth", href: "https://review.firstround.com/podcast/" },
-  { title: "Dwarkesh Podcast", href: "https://www.dwarkesh.com/podcast" },
-  { title: "Stratechery", href: "https://stratechery.com/category/podcasts/" },
-  { title: "BG2", href: "https://www.bg2pod.com/" },
-  { title: "a16z", href: "https://a16z.com/podcasts/" },
-  { title: "Unsolicited Feedback", href: "https://www.reforge.com/podcast/unsolicited-feedback" },
-  { title: "Crucible Moments", href: "https://www.cruciblemoments.com/" },
-  { title: "AI & I", href: "https://every.to/podcast" },
-  { title: "How I AI", href: "https://podcasts.apple.com/us/podcast/how-i-ai/id1809663079" },
-  { title: "Unsupervised Learning", href: "https://www.redpoint.com/content-hub/unsupervised-learning/" },
-  { title: "Get the Check", href: "https://www.getthecheckpod.com/" },
-  { title: "Glue Guys", href: "https://joincolossus.com/series/glue-guys/" },
-];
 
-const reading = [
-  { title: "Zen and the Art of Motorcycle Maintenance", author: "Robert Pirsig" },
-  { title: "Reinventing the Bazaar", author: "John McMillan" },
-  { title: "Inspired", author: "Marty Cagan" },
-  { title: "Steve Jobs", author: "Walter Isaacson" },
-];
 
 function ExternalLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
@@ -52,13 +27,15 @@ function ExternalLink({ href, children }: { href: string; children: React.ReactN
   );
 }
 
-export default function LearningsPage() {
+export default async function LearningsPage() {
+ const [content] = await documents<{podcasts:{title:string;href:string}[];reading:{title:string;author:string}[];podcastsLabel:string;readingLabel:string}>("learnings", true);
+ const {podcasts,reading} = content;
   return (
     <article>
       <AnimateIn>
         <section>
           <h2 className="text-xs font-medium uppercase tracking-widest text-dim mb-4">
-            Podcasts
+            {content.podcastsLabel}
           </h2>
           <div>
             {podcasts.map((podcast) => (
@@ -73,7 +50,7 @@ export default function LearningsPage() {
       <AnimateIn delay={0.1}>
         <section className="mt-14">
           <h2 className="text-xs font-medium uppercase tracking-widest text-dim mb-4">
-            Reading
+            {content.readingLabel}
           </h2>
           <div>
             {reading.map((book) => (

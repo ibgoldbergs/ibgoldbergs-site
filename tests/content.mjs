@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const docs=JSON.parse(fs.readFileSync('sanity/fixtures.json'));
+const posts=docs.filter(d=>d._type==='post');
+assert.equal(posts.length,2);
+const essay=posts.find(d=>d.slug.current==='small-industries-deserve-great-software');
+assert.equal(essay.unlisted,true);
+assert.equal(essay.draft,false);
+const source=fs.readFileSync('content/posts/small-industries-deserve-great-software.mdx','utf8').replace(/^---[\s\S]*?---/,'').replace(/^## /gm,'').replace(/\s+/g,' ').trim();
+assert.equal(essay.body.map(b=>b.children.map(c=>c.text).join('')).join(' ').replace(/\s+/g,' ').trim(),source);
+assert.deepEqual(posts.filter(p=>!p.unlisted&&!p.draft).map(p=>p.slug.current),['hello-world']);
+assert.equal(docs.find(d=>d._id==='projects').items.length,3);
+assert.equal(docs.find(d=>d._id==='learnings').podcasts.length,14);
+console.log('Fixture preservation and visibility assertions passed. No connected verification.');

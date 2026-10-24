@@ -1,6 +1,8 @@
-import { SOCIAL, SITE } from "@/lib/constants";
+import { settings } from "@/lib/cms";
 
-export function Footer() {
+export async function Footer() {
+ const SITE = await settings();
+ const SOCIAL=SITE;
   return (
     <footer className="flex flex-col gap-4 border-t border-border py-8 sm:flex-row sm:items-center sm:justify-between">
       <p className="text-sm text-dim">

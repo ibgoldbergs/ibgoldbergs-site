@@ -1,22 +1,24 @@
-import { getAllPosts, getPostContent } from "@/lib/mdx";
+import { getAllPosts, plainText } from "@/lib/mdx";
 import { SITE } from "@/lib/constants";
 
+const xml=(s:string)=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const cdata=(s:string)=>s.replace(/]]>/g,"]]]]><![CDATA[>");
 export async function GET() {
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
 
   const items = posts
     .map((post) => {
-      const content = getPostContent(post.slug);
+      const content = plainText(post.body);
       // Strip frontmatter for RSS content
       const body = content.replace(/^---[\s\S]*?---/, "").trim();
 
       return `    <item>
-      <title><![CDATA[${post.title}]]></title>
+      <title><![CDATA[${cdata(post.title)}]]></title>
       <link>${SITE.url}/writing/${post.slug}</link>
       <guid isPermaLink="true">${SITE.url}/writing/${post.slug}</guid>
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-      <description><![CDATA[${post.description}]]></description>
-      <content:encoded><![CDATA[${body}]]></content:encoded>
+      <description><![CDATA[${cdata(post.description)}]]></description>
+      <content:encoded><![CDATA[${cdata(body)}]]></content:encoded>
     </item>`;
     })
     .join("\n");
@@ -26,7 +28,7 @@ export async function GET() {
   <channel>
     <title>${SITE.name}</title>
     <link>${SITE.url}</link>
-    <description>${SITE.description}</description>
+    <description>${xml(SITE.description)}</description>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${SITE.url}/feed.xml" rel="self" type="application/rss+xml"/>
