@@ -1,3 +1,4 @@
+import { socialMetadata } from "@/lib/metadata";
 import { RichText } from "@/components/rich-text";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
@@ -25,13 +26,13 @@ export async function generateMetadata({
     title: post.title,
     description: post.description,
     robots: (post.unlisted || (await draftMode()).isEnabled) ? { index: false, follow: false } : undefined,
-    openGraph: {
+    ...socialMetadata({
       title: post.title,
       description: post.description,
-      type: "article",
+      path: `/writing/${post.slug}`,
+      site: SITE,
       publishedTime: post.date,
-      url: `${SITE.url}/writing/${post.slug}`,
-    },
+    }),
   };
 }
 
