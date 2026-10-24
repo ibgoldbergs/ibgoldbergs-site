@@ -40,7 +40,8 @@ ${items}
   return new Response(feed, {
     headers: {
       "Content-Type": "application/xml; charset=utf-8",
-      "Cache-Control": "s-maxage=3600, stale-while-revalidate",
+      // Visibility changes must apply on the next request, including withdrawals.
+      "Cache-Control": "no-store",
     },
   });
 }
