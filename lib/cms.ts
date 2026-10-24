@@ -1,4 +1,5 @@
 import 'server-only';
+import { SITE } from './constants';
 import {createClient} from '@sanity/client';
 import {draftMode} from 'next/headers';
 import fixtures from '@/sanity/fixtures.json';
@@ -10,4 +11,8 @@ export async function documents<T>(type:string,preview=false):Promise<T[]> {
  return client.fetch<T[]>('*[_type == $type]',{type},{cache:'no-store'});
 }
 export type Settings={jobTitle:string;organization:string;alumni:string;city:string;region:string;homeLabel:string;backLabel:string;ogAlt:string;name:string;title:string;description:string;url:string;locale:string;email:string;linkedin:string;twitter:string;navigation:{label:string;href:string}[]};
-export async function settings(preview=true){return (await documents<Settings>('settings',preview))[0]}
+export async function settings(preview=true) {
+ const content = (await documents<Settings>('settings',preview))[0];
+ // Production identity is fixed even when older CMS settings use the apex host.
+ return { ...content, url: SITE.url };
+}

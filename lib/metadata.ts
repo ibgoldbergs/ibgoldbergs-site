@@ -8,7 +8,7 @@ type SocialMetadata = {
   publishedTime?: string;
 };
 
-export function socialMetadata({ title, description, path, site, publishedTime }: SocialMetadata): Pick<Metadata, "openGraph" | "twitter"> {
+export function socialMetadata({ title, description, path, site, publishedTime }: SocialMetadata): Pick<Metadata, "openGraph" | "twitter" | "alternates"> {
   const image = {
     url: new URL("/og-image.png", site.url).href,
     width: 1200,
@@ -16,6 +16,7 @@ export function socialMetadata({ title, description, path, site, publishedTime }
     alt: "Ian Goldberg, ibgoldbergs.com",
   };
   return {
+    alternates: { canonical: new URL(path, site.url).href },
     openGraph: {
       title,
       description,

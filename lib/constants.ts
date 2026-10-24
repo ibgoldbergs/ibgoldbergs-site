@@ -3,7 +3,7 @@ export const SITE = {
   title: "Ian Goldberg",
   description:
     "Ian Goldberg — product builder in Asheville, NC. Senior PM at OneVision Resources. Writing about product, technology, and building things.",
-  url: "https://ibgoldbergs.com",
+  url: "https://www.ibgoldbergs.com",
   locale: "en_US",
   email: "hello@ibgoldbergs.com",
 } as const;
