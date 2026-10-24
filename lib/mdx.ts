@@ -1,7 +1,7 @@
 import {documents} from './cms';
 import type {PortableTextBlock} from '@portabletext/react';
 import readingTime from 'reading-time';
-type Document={title:string;date:string;description:string;tags:string[];unlisted:boolean;draft?:boolean;slug:{current:string};body:PortableTextBlock[]};
+type Document={_updatedAt?:string;title:string;date:string;description:string;tags:string[];unlisted:boolean;draft?:boolean;slug:{current:string};body:PortableTextBlock[]};
 export type PostMeta=Omit<Document,'slug'> & {slug:string;readingTime:string};
 export const plainText=(body:PortableTextBlock[])=>body.map(b=>b.children.map(c=>c.text).join('')).join('\n\n');
 export async function getAllPosts({includeUnlisted=false,preview=false}={}):Promise<PostMeta[]>{
