@@ -1,41 +1,33 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/mdx";
-import { settings } from "@/lib/cms";
+import { documents, settings } from "@/lib/cms";
+
+type EditorialDocument = { _updatedAt?: string };
+
+function validDate(value?: string): Date | undefined {
+  if (!value) return undefined;
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? undefined : date;
+}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const SITE=await settings(false);
-  const posts = (await getAllPosts()).map((post) => ({
-    url: `${SITE.url}/writing/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
+  const [site, posts, [home], [projects], [learnings]] = await Promise.all([
+    settings(false),
+    getAllPosts(),
+    documents<EditorialDocument>("home", false),
+    documents<EditorialDocument>("projects", false),
+    documents<EditorialDocument>("learnings", false),
+  ]);
 
   return [
-    {
-      url: SITE.url,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1.0,
-    },
-    {
-      url: `${SITE.url}/projects`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${SITE.url}/learnings`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${SITE.url}/writing`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    ...posts,
+    { url: site.url, lastModified: validDate(home?._updatedAt) },
+    { url: `${site.url}/projects`, lastModified: validDate(projects?._updatedAt) },
+    { url: `${site.url}/learnings`, lastModified: validDate(learnings?._updatedAt) },
+    // No single document timestamp tracks additions and removals from this index.
+    { url: `${site.url}/writing` },
+    ...posts.map((post) => ({
+      url: `${site.url}/writing/${post.slug}`,
+      lastModified: validDate(post._updatedAt) ?? validDate(post.date),
+    })),
   ];
 }
