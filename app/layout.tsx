@@ -1,3 +1,4 @@
+import { draftMode } from "next/headers";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
@@ -55,7 +56,7 @@ export async function generateMetadata(): Promise<Metadata> {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: `${SITE.name} — Personal Website`,
+        alt: SITE.ogAlt,
       },
     ],
   },
@@ -65,8 +66,8 @@ export async function generateMetadata(): Promise<Metadata> {
     description: SITE.description,
   },
   robots: {
-    index: true,
-    follow: true,
+    index: !(await draftMode()).isEnabled,
+    follow: !(await draftMode()).isEnabled,
   },
 };
 }
@@ -100,7 +101,7 @@ export default async function RootLayout({
             Skip to content
           </a>
           <div className="mx-auto max-w-[640px] px-6 pt-16 pb-8 sm:pt-32">
-            <Nav name={SITE.name} items={SITE.navigation} />
+            <Nav name={SITE.name} items={SITE.navigation} homeLabel={SITE.homeLabel} />
             <main id="main" className="mt-16 sm:mt-24">
               {children}
             </main>

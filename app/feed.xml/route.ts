@@ -1,9 +1,10 @@
 import { getAllPosts, plainText } from "@/lib/mdx";
-import { SITE } from "@/lib/constants";
+import { settings } from "@/lib/cms";
 
 const xml=(s:string)=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 const cdata=(s:string)=>s.replace(/]]>/g,"]]]]><![CDATA[>");
 export async function GET() {
+  const SITE=await settings(false);
   const posts = await getAllPosts();
 
   const items = posts
@@ -26,7 +27,7 @@ export async function GET() {
   const feed = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>${SITE.name}</title>
+    <title>${xml(SITE.name)}</title>
     <link>${SITE.url}</link>
     <description>${xml(SITE.description)}</description>
     <language>en-us</language>

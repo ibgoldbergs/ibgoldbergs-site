@@ -29,7 +29,15 @@
     ],
     "writingTitle": "Writing",
     "writingDescription": "Thoughts on product, technology, and building things.",
-    "emptyWriting": "No posts yet. Check back soon."
+    "emptyWriting": "No posts yet. Check back soon.",
+    "jobTitle": "Senior Product Manager",
+    "organization": "OneVision Resources",
+    "alumni": "Texas Tech University",
+    "city": "Asheville",
+    "region": "NC",
+    "homeLabel": "Home",
+    "backLabel": "Writing",
+    "ogAlt": "Ian Goldberg \u2014 Personal Website"
   },
   {
     "_id": "projects",

@@ -8,7 +8,7 @@ export async function generateMetadata():Promise<Metadata>{const [c]=await docum
 
 function formatDate(dateStr: string) {
   const date = new Date(dateStr);
-  return date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  return date.toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
 }
 
 export default async function WritingPage() {

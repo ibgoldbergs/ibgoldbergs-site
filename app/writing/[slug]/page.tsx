@@ -1,11 +1,11 @@
-import { PortableText } from "@portabletext/react";
+import { RichText } from "@/components/rich-text";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { AnimateIn } from "@/components/animate-in";
 import { getAllPosts } from "@/lib/mdx";
-import { SITE } from "@/lib/constants";
+import { settings } from "@/lib/cms";
 
 export async function generateStaticParams() {
   return (await getAllPosts({ includeUnlisted: true })).map((post) => ({ slug: post.slug }));
@@ -16,6 +16,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
+  const SITE=await settings();
   const { slug } = await params;
   const post = (await getAllPosts({ includeUnlisted: true, preview: true })).find((p) => p.slug === slug);
   if (!post) return {};
@@ -36,6 +37,7 @@ export async function generateMetadata({
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("en-US", {
+    timeZone: "UTC",
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -47,6 +49,7 @@ export default async function PostPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  const SITE=await settings();
   const { slug } = await params;
   const post = (await getAllPosts({ includeUnlisted: true, preview: true })).find((p) => p.slug === slug);
   if (!post) notFound();
@@ -59,7 +62,7 @@ export default async function PostPage({
           href="/writing"
           className="text-sm text-muted transition-colors hover:text-foreground"
         >
-          &larr; Writing
+          &larr; {SITE.backLabel}
         </Link>
 
         <header className="mt-8">
@@ -88,7 +91,7 @@ export default async function PostPage({
 
       <AnimateIn delay={0.1}>
         <div className="mt-10">
-          <div className="prose prose-invert"><PortableText value={post.body} /></div>
+          <RichText value={post.body} />
         </div>
       </AnimateIn>
 

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 
-export function Nav({name,items: NAV_ITEMS}:{name:string;items:{label:string;href:string}[]}) {
+export function Nav({name,homeLabel,items: NAV_ITEMS}:{name:string;homeLabel:string;items:{label:string;href:string}[]}) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -112,7 +112,7 @@ export function Nav({name,items: NAV_ITEMS}:{name:string;items:{label:string;hre
                 className="text-lg text-foreground"
                 onClick={() => setMenuOpen(false)}
               >
-                Home
+                {homeLabel}
               </Link>
             </li>
             {NAV_ITEMS.map((item) => (
