@@ -1,66 +1,10 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import readingTime from "reading-time";
-
-const POSTS_DIR = path.join(process.cwd(), "content", "posts");
-
-export type PostMeta = {
-  slug: string;
-  title: string;
-  date: string;
-  description: string;
-  tags: string[];
-  draft: boolean;
-  unlisted: boolean;
-  readingTime: string;
-};
-
-function isProduction() {
-  return process.env.NODE_ENV === "production" || process.env.VERCEL_ENV === "production";
+import {documents} from './cms';
+import type {PortableTextBlock} from '@portabletext/react';
+import readingTime from 'reading-time';
+type Document={title:string;date:string;description:string;tags:string[];unlisted:boolean;draft?:boolean;slug:{current:string};body:PortableTextBlock[]};
+export type PostMeta=Omit<Document,'slug'> & {slug:string;readingTime:string};
+export const plainText=(body:PortableTextBlock[])=>body.map(b=>b.children.map(c=>c.text).join('')).join('\n\n');
+export async function getAllPosts({includeUnlisted=false,preview=false}={}):Promise<PostMeta[]>{
+ return (await documents<Document>('post',preview)).filter(p=>!p.draft).filter(p=>includeUnlisted||!p.unlisted).map(p=>({...p,tags:p.tags||[],slug:p.slug.current,readingTime:readingTime(plainText(p.body)).text})).sort((a,b)=>b.date.localeCompare(a.date));
 }
-
-export function getAllPosts({ includeUnlisted = false } = {}): PostMeta[] {
-  if (!fs.existsSync(POSTS_DIR)) return [];
-
-  const files = fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith(".mdx"));
-
-  return files
-    .map((filename) => {
-      const slug = filename.replace(".mdx", "");
-      const raw = fs.readFileSync(path.join(POSTS_DIR, filename), "utf-8");
-      const { data, content } = matter(raw);
-
-      return {
-        slug,
-        title: data.title ?? slug,
-        date: data.date ?? "",
-        description: data.description ?? "",
-        tags: data.tags ?? [],
-        draft: data.draft ?? false,
-        unlisted: data.unlisted ?? false,
-        readingTime: readingTime(content).text,
-      };
-    })
-    .filter((post) => (isProduction() ? !post.draft : true))
-    .filter((post) => includeUnlisted || !post.unlisted)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-}
-
-export function getPostContent(slug: string): string {
-  const filePath = path.join(POSTS_DIR, `${slug}.mdx`);
-  return fs.readFileSync(filePath, "utf-8");
-}
-
-export function getPostsByYear(): Record<string, PostMeta[]> {
-  const posts = getAllPosts();
-  const byYear: Record<string, PostMeta[]> = {};
-
-  for (const post of posts) {
-    const year = new Date(post.date).getFullYear().toString();
-    if (!byYear[year]) byYear[year] = [];
-    byYear[year].push(post);
-  }
-
-  return byYear;
-}
+export async function getPostsByYear(){const result:Record<string,PostMeta[]>={};for(const p of await getAllPosts()){const year=p.date.slice(0,4);(result[year]??=[]).push(p)}return result}

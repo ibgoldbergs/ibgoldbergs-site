@@ -1,0 +1,5 @@
+import {defineConfig} from 'sanity';
+import {structureTool} from 'sanity/structure';
+import {schemaTypes} from './sanity/schema';
+const singletons=['home','projects','learnings','settings'];
+export default defineConfig({name:'editorial',title:'Ian Goldberg',basePath:'/studio',projectId:process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'placeholder',dataset:process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',plugins:[structureTool({structure:S=>S.list().title('Editorial').items([...singletons.map(id=>S.listItem().id(id).title({home:'Homepage & bio',projects:'Projects',learnings:'Learnings',settings:'Site settings'}[id] || id).child(S.document().schemaType(id).documentId(id))),S.documentTypeListItem('post').title('Writing')])})],schema:{types:schemaTypes,templates:templates=>templates.filter(t=>!singletons.includes(t.schemaType))},document:{actions:(actions,context)=>singletons.includes(context.schemaType)?actions.filter(a=>!['delete','duplicate','unpublish'].includes(a.action || '')):actions}});

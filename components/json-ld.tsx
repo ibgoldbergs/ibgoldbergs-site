@@ -1,6 +1,7 @@
-import { SITE, SOCIAL } from "@/lib/constants";
+import { settings } from "@/lib/cms";
 
-export function PersonJsonLd() {
+export async function PersonJsonLd() {
+ const SITE=await settings(); const SOCIAL=SITE;
   return (
     <script
       type="application/ld+json"
@@ -10,22 +11,22 @@ export function PersonJsonLd() {
           "@type": "Person",
           name: SITE.name,
           url: SITE.url,
-          jobTitle: "Senior Product Manager",
+          jobTitle: SITE.jobTitle,
           worksFor: {
             "@type": "Organization",
-            name: "OneVision Resources",
+            name: SITE.organization,
           },
           alumniOf: {
             "@type": "CollegeOrUniversity",
-            name: "Texas Tech University",
+            name: SITE.alumni,
           },
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Asheville",
-            addressRegion: "NC",
+            addressLocality: SITE.city,
+            addressRegion: SITE.region,
           },
           sameAs: [SOCIAL.linkedin, SOCIAL.twitter],
-        }),
+        }).replace(/</g,"\\u003c"),
       }}
     />
   );

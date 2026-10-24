@@ -1,27 +1,26 @@
+import { documents } from "@/lib/cms";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AnimateIn } from "@/components/animate-in";
 import { getPostsByYear } from "@/lib/mdx";
 
-export const metadata: Metadata = {
-  title: "Writing",
-  description: "Thoughts on product, technology, and building things.",
-};
+export async function generateMetadata():Promise<Metadata>{const [c]=await documents<{writingTitle:string;writingDescription:string}>("settings",true);return {title:c.writingTitle,description:c.writingDescription};}
 
 function formatDate(dateStr: string) {
   const date = new Date(dateStr);
-  return date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  return date.toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
 }
 
-export default function WritingPage() {
-  const postsByYear = getPostsByYear();
+export default async function WritingPage() {
+  const [settings]=await documents<{emptyWriting:string}>("settings",true);
+  const postsByYear = await getPostsByYear();
   const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
 
   return (
     <article>
       {years.length === 0 ? (
         <AnimateIn>
-          <p className="text-muted">No posts yet. Check back soon.</p>
+          <p className="text-muted">{settings.emptyWriting}</p>
         </AnimateIn>
       ) : (
         years.map((year, yearIndex) => (
