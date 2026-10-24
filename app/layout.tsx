@@ -6,7 +6,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { settings } from "@/lib/cms";
-import { socialMetadata } from "@/lib/metadata";
 import "./globals.css";
 
 const mapleMono = localFont({
@@ -45,7 +44,6 @@ export async function generateMetadata(): Promise<Metadata> {
     template: `%s — ${SITE.title}`,
   },
   description: SITE.description,
-  ...socialMetadata({ title: SITE.title, description: SITE.description, path: "/", site: SITE }),
   robots: {
     index: !(await draftMode()).isEnabled,
     follow: !(await draftMode()).isEnabled,

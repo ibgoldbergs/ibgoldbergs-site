@@ -10,7 +10,7 @@ const source = ts.transpileModule(fs.readFileSync('lib/metadata.ts', 'utf8'), {
 const context = { exports: {}, URL };
 vm.runInNewContext(source, context);
 const { socialMetadata } = context.exports;
-const site = { url: 'https://ibgoldbergs.com', name: 'Ian Goldberg', locale: 'en_US' };
+const site = { url: 'https://www.ibgoldbergs.com', name: 'Ian Goldberg', locale: 'en_US' };
 
 test('every social preview includes the page copy, absolute URL and shared image', () => {
   for (const path of ['/', '/projects', '/learnings', '/writing', '/writing/hello-world']) {
@@ -19,9 +19,10 @@ test('every social preview includes the page copy, absolute URL and shared image
     for (const metadata of [result.openGraph, result.twitter]) {
       assert.equal(metadata.title, `Title for ${path}`);
       assert.equal(metadata.description, `Description for ${path}`);
-      assert.equal(metadata.images[0].url, 'https://ibgoldbergs.com/og-image.png');
+      assert.equal(metadata.images[0].url, 'https://www.ibgoldbergs.com/og-image.png');
       assert.equal(metadata.images[0].alt, 'Ian Goldberg, ibgoldbergs.com');
     }
+    assert.equal(result.alternates.canonical, new URL(path, site.url).href);
     assert.equal(result.openGraph.url, new URL(path, site.url).href);
     assert.equal(result.openGraph.type, path === '/writing/hello-world' ? 'article' : 'website');
     assert.equal(result.twitter.card, 'summary_large_image');

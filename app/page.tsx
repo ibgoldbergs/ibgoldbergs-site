@@ -1,8 +1,15 @@
-import { documents } from "@/lib/cms";
+import type { Metadata } from "next";
+import { socialMetadata } from "@/lib/metadata";
+import { documents, settings } from "@/lib/cms";
 import { PortableText, type PortableTextBlock } from "@portabletext/react";
 type HomeContent={bio:PortableTextBlock[];personal:string;quote:string;attribution:string};
 import { AnimateIn } from "@/components/animate-in";
 import { PersonJsonLd } from "@/components/json-ld";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const site = await settings();
+  return socialMetadata({ title: site.title, description: site.description, path: "/", site });
+}
 
 export default async function Home() {
   const [home] = await documents<HomeContent>("home", true);
