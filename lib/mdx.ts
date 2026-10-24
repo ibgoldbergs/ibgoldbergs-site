@@ -12,6 +12,7 @@ export type PostMeta = {
   description: string;
   tags: string[];
   draft: boolean;
+  unlisted: boolean;
   readingTime: string;
 };
 
@@ -19,7 +20,7 @@ function isProduction() {
   return process.env.NODE_ENV === "production" || process.env.VERCEL_ENV === "production";
 }
 
-export function getAllPosts(): PostMeta[] {
+export function getAllPosts({ includeUnlisted = false } = {}): PostMeta[] {
   if (!fs.existsSync(POSTS_DIR)) return [];
 
   const files = fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith(".mdx"));
@@ -37,10 +38,12 @@ export function getAllPosts(): PostMeta[] {
         description: data.description ?? "",
         tags: data.tags ?? [],
         draft: data.draft ?? false,
+        unlisted: data.unlisted ?? false,
         readingTime: readingTime(content).text,
       };
     })
     .filter((post) => (isProduction() ? !post.draft : true))
+    .filter((post) => includeUnlisted || !post.unlisted)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
