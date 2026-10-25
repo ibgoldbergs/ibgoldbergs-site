@@ -1,8 +1,6 @@
 import type { MetadataRoute } from "next";
-import { getAllPosts } from "@/lib/mdx";
-import { documents, settings } from "@/lib/cms";
-
-type EditorialDocument = { _updatedAt?: string };
+import { getSitemapPosts } from "@/lib/mdx";
+import { documentDates, settings } from "@/lib/cms";
 
 function validDate(value?: string): Date | undefined {
   if (!value) return undefined;
@@ -13,10 +11,10 @@ function validDate(value?: string): Date | undefined {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [site, posts, [home], [projects], [learnings]] = await Promise.all([
     settings(false),
-    getAllPosts(),
-    documents<EditorialDocument>("home", false),
-    documents<EditorialDocument>("projects", false),
-    documents<EditorialDocument>("learnings", false),
+    getSitemapPosts(),
+    documentDates("home"),
+    documentDates("projects"),
+    documentDates("learnings"),
   ]);
 
   return [

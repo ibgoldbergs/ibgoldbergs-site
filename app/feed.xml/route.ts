@@ -1,15 +1,15 @@
-import { getAllPosts, plainText } from "@/lib/mdx";
+import { getFeedPosts } from "@/lib/mdx";
 import { settings } from "@/lib/cms";
 
 const xml=(s:string)=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 const cdata=(s:string)=>s.replace(/]]>/g,"]]]]><![CDATA[>");
 export async function GET() {
   const SITE=await settings(false);
-  const posts = await getAllPosts();
+  const posts = await getFeedPosts();
 
   const items = posts
     .map((post) => {
-      const content = plainText(post.body);
+      const content = post.text;
       // Strip frontmatter for RSS content
       const body = content.replace(/^---[\s\S]*?---/, "").trim();
 
