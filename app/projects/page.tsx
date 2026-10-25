@@ -15,10 +15,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
 
 export default async function ProjectsPage() {
- const [content] = await documents<{items:{title:string;description:string;role:string;href?:string}[]}>("projects", true);
+ const [content] = await documents<{title:string;items:{title:string;description:string;role:string;href?:string}[]}>("projects", true);
  const projects = content.items;
   return (
     <article>
+      <h1 className="sr-only">{content.title}</h1>
       <AnimateIn>
         <div className="flex flex-col gap-4">
           {projects.map((project) => (

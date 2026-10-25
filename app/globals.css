@@ -9,7 +9,7 @@
   --color-border: #2e2e2e;
   --color-muted: #a0a0a0;
   --color-heading: #fafafa;
-  --color-dim: #707070;
+  --color-dim: #7c7c7c;
   --color-accent: #3b82f6;
 
   --font-sans: var(--font-maple-mono), ui-monospace, monospace;
@@ -82,4 +82,9 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* The full-screen navigation dialog prevents background scrolling. */
+body:has(.mobile-menu[open]) {
+  overflow: hidden;
 }

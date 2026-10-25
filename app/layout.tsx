@@ -81,7 +81,7 @@ export default async function RootLayout({
           </a>
           <div className="mx-auto max-w-[640px] px-6 pt-16 pb-8 sm:pt-32">
             <Nav name={SITE.name} items={SITE.navigation} homeLabel={SITE.homeLabel} />
-            <main id="main" className="mt-16 sm:mt-24">
+            <main id="main" tabIndex={-1} className="mt-16 sm:mt-24">
               {children}
             </main>
             <div className="mt-16 sm:mt-24">

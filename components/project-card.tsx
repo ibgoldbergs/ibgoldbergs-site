@@ -24,7 +24,7 @@ export function ProjectCard({
       }`}
     >
       <div className="flex items-start justify-between gap-2">
-        <h3 className="text-sm font-medium text-heading">{title}</h3>
+        <h2 className="text-sm font-medium text-heading">{title}</h2>
         {href && (
           <span className="shrink-0 text-dim" aria-hidden="true">
             ↗

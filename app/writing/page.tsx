@@ -20,12 +20,13 @@ function formatDate(dateStr: string) {
 }
 
 export default async function WritingPage() {
-  const [settings]=await documents<{emptyWriting:string}>("settings",true);
+  const [settings]=await documents<{writingTitle:string;emptyWriting:string}>("settings",true);
   const postsByYear = await getPostsByYear();
   const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
 
   return (
     <article>
+      <h1 className="sr-only">{settings.writingTitle}</h1>
       {years.length === 0 ? (
         <AnimateIn>
           <p className="text-muted">{settings.emptyWriting}</p>
