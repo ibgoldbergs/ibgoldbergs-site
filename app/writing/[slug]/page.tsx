@@ -5,12 +5,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { AnimateIn } from "@/components/animate-in";
-import { getAllPosts } from "@/lib/mdx";
+import { getPostBySlug } from "@/lib/mdx";
 import { settings } from "@/lib/cms";
-
-export async function generateStaticParams() {
-  return (await getAllPosts({ includeUnlisted: true })).map((post) => ({ slug: post.slug }));
-}
 
 export async function generateMetadata({
   params,
@@ -19,7 +15,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const SITE=await settings();
   const { slug } = await params;
-  const post = (await getAllPosts({ includeUnlisted: true, preview: true })).find((p) => p.slug === slug);
+  const post = await getPostBySlug(slug);
   if (!post) return {};
 
   return {
@@ -52,7 +48,7 @@ export default async function PostPage({
 }) {
   const SITE=await settings();
   const { slug } = await params;
-  const post = (await getAllPosts({ includeUnlisted: true, preview: true })).find((p) => p.slug === slug);
+  const post = await getPostBySlug(slug);
   if (!post) notFound();
 
 

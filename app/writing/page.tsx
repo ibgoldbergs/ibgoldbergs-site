@@ -1,16 +1,16 @@
 import { socialMetadata } from "@/lib/metadata";
-import { documents, settings } from "@/lib/cms";
+import { settings } from "@/lib/cms";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AnimateIn } from "@/components/animate-in";
 import { getPostsByYear } from "@/lib/mdx";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const [[c], site] = await Promise.all([documents<{writingTitle:string;writingDescription:string}>("settings", true), settings()]);
+  const site = await settings();
   return {
-    title: c.writingTitle,
-    description: c.writingDescription,
-    ...socialMetadata({ title: c.writingTitle, description: c.writingDescription, path: "/writing", site }),
+    title: site.writingTitle,
+    description: site.writingDescription,
+    ...socialMetadata({ title: site.writingTitle, description: site.writingDescription, path: "/writing", site }),
   };
 }
 
@@ -20,16 +20,16 @@ function formatDate(dateStr: string) {
 }
 
 export default async function WritingPage() {
-  const [settings]=await documents<{writingTitle:string;emptyWriting:string}>("settings",true);
+  const content = await settings();
   const postsByYear = await getPostsByYear();
   const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
 
   return (
     <article>
-      <h1 className="sr-only">{settings.writingTitle}</h1>
+      <h1 className="sr-only">{content.writingTitle}</h1>
       {years.length === 0 ? (
         <AnimateIn>
-          <p className="text-muted">{settings.emptyWriting}</p>
+          <p className="text-muted">{content.emptyWriting}</p>
         </AnimateIn>
       ) : (
         years.map((year, yearIndex) => (

@@ -1,21 +1,8 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import vm from 'node:vm';
 import test from 'node:test';
-import ts from 'typescript';
-import readingTime from 'reading-time';
 
-function load(filename, modules, globals = {}) {
-  const source = ts.transpileModule(fs.readFileSync(filename, 'utf8'), {
-    compilerOptions: { module: ts.ModuleKind.CommonJS, esModuleInterop: true },
-  }).outputText;
-  const context = { exports: {}, require: name => {
-    assert.ok(name in modules, `Unexpected dependency ${name}`);
-    return modules[name];
-  }, ...globals };
-  vm.runInNewContext(source, context);
-  return context.exports;
-}
+import { load, harness } from './cms-harness.mjs';
 
 test('sitemap dates come from published content and stay stable as request time advances', async () => {
   const fixtures = JSON.parse(fs.readFileSync('sanity/fixtures.json', 'utf8'));
@@ -28,18 +15,7 @@ test('sitemap dates come from published content and stay stable as request time 
     { ...listed, _id: 'drafts.private', slug: { current: 'private-draft' } },
     { ...listed, _id: 'flagged-draft', draft: true, slug: { current: 'flagged-draft' } },
   ];
-  const cms = load('lib/cms.ts', {
-    'server-only': {},
-    './constants': load('lib/constants.ts', {}),
-    '@/sanity/fixtures.json': fixtures,
-    'next/headers': { draftMode: async () => { throw Error('Sitemap must not consult preview'); } },
-    '@sanity/client': { createClient: options => {
-      assert.equal(options.perspective, 'published');
-      assert.equal(options.token, undefined);
-      return { fetch: async (query, params) => records.filter(d => d._type === params.type && !d._id.startsWith('drafts.')) };
-    } },
-  }, { process: { env: { NEXT_PUBLIC_SANITY_PROJECT_ID: 'fixture-project', NEXT_PUBLIC_SANITY_DATASET: 'production' } } });
-  const posts = load('lib/mdx.ts', { './cms': cms, 'reading-time': readingTime });
+  const { cms, posts } = harness(records, { preview: true });
   let now = '2026-08-01T00:00:00Z';
   class Clock extends Date { constructor(value) { super(value === undefined ? now : value); } }
   const sitemap = load('app/sitemap.ts', { '@/lib/mdx': posts, '@/lib/cms': cms }, { Date: Clock });
