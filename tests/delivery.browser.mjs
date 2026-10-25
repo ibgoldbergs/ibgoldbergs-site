@@ -18,9 +18,9 @@ try {
           await page.goto(base+path,{waitUntil:'networkidle'});
           await page.evaluate(()=>document.fonts.ready);
           const result = await page.evaluate(() => {
-            const wrappers = [...document.querySelectorAll('main > div')];
+            const wrappers = [...document.querySelectorAll('main div')];
             return {
-              visible: wrappers.every(n=>getComputedStyle(n).opacity==='1' && getComputedStyle(n).visibility==='visible'),
+              visible: wrappers.length > 0 && wrappers.every(n=>getComputedStyle(n).opacity==='1' && getComputedStyle(n).visibility==='visible'),
               animations: document.getAnimations().length,
               overflow:document.documentElement.scrollWidth > innerWidth,
               fontPreloads:document.querySelectorAll('link[rel="preload"][as="font"]').length,
