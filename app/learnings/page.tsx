@@ -36,10 +36,11 @@ function ExternalLink({ href, children }: { href: string; children: React.ReactN
 }
 
 export default async function LearningsPage() {
- const [content] = await documents<{podcasts:{title:string;href:string}[];reading:{title:string;author:string}[];podcastsLabel:string;readingLabel:string}>("learnings", true);
+ const [content] = await documents<{title:string;podcasts:{title:string;href:string}[];reading:{title:string;author:string}[];podcastsLabel:string;readingLabel:string}>("learnings", true);
  const {podcasts,reading} = content;
   return (
     <article>
+      <h1 className="sr-only">{content.title}</h1>
       <AnimateIn>
         <section>
           <h2 className="text-xs font-medium uppercase tracking-widest text-dim mb-4">

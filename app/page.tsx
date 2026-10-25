@@ -12,9 +12,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-  const [home] = await documents<HomeContent>("home", true);
+  const [[home], site] = await Promise.all([documents<HomeContent>("home", true), settings()]);
   return (
     <article>
+      <h1 className="sr-only">{site.name}</h1>
       <PersonJsonLd />
       <AnimateIn>
         <div className="space-y-6 leading-relaxed text-foreground">
