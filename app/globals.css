@@ -88,3 +88,16 @@ body {
 body:has(.mobile-menu[open]) {
   overflow: hidden;
 }
+
+/* Visible even before hydration or with JavaScript disabled. */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-in {
+    animation: content-enter 0.4s cubic-bezier(0.21, 0.47, 0.32, 0.98)
+      var(--entrance-delay, 0s) backwards;
+  }
+
+  @keyframes content-enter {
+    from { transform: translateY(20px); }
+    to { transform: translateY(0); }
+  }
+}
