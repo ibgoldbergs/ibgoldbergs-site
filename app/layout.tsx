@@ -33,6 +33,9 @@ const mapleMono = localFont({
   ],
   variable: "--font-maple-mono",
   display: "swap",
+  // Let CSS request only the weights/styles rendered on this page.
+  // Preloading every face also downloads unused semibold and italic fonts.
+  preload: false,
 });
 
 export async function generateMetadata(): Promise<Metadata> {
